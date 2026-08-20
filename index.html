@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Детский центр «Карандаш» — продлёнка и развитие в Краснодаре</title>
+<meta name="description" content="Детский центр «Карандаш» в Краснодаре: продлёнка, подготовка к школе, творческие занятия. Ребёнок в безопасности, развивается и с удовольствием проводит каждый день.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Neucha&display=swap" rel="stylesheet">
+<style>
+/* ============ БАЗА ============ */
+:root{
+  --navy:#1e2a78;
+  --text:#333a66;
+  --muted:#6b7194;
+  --red:#e94040;
+  --orange:#f78b1e;
+  --yellow:#ffc20e;
+  --yellow-dark:#f2a90a;
+  --green:#43a047;
+  --sky:#29abe2;
+  --blue:#2787f5;
+  --indigo:#5a5bd4;
+  --purple:#8e44ad;
+  --pink:#f45b9c;
+  --bg:#ffffff;
+  --bg-soft:#fff8ee;
+  --line:#eceef8;
+  --radius:22px;
+  --shadow:0 12px 32px rgba(30,42,120,.10);
+  --font:'Manrope',system-ui,sans-serif;
+  --hand:'Neucha',cursive;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);font-size:18px;line-height:1.6;color:var(--text);background:var(--bg)}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{color:var(--navy);line-height:1.2;font-weight:800}
+h1{font-size:clamp(30px,4.6vw,56px)}
+h2{font-size:clamp(26px,3.4vw,44px);text-align:center;margin-bottom:14px}
+h3{font-size:20px;font-weight:700}
+p{margin:0}
+ul{list-style:none}
+button{font-family:inherit;cursor:pointer}
+section{padding:72px 0;scroll-margin-top:96px}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+.section-sub{text-align:center;max-width:720px;margin:0 auto 44px;color:var(--muted)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+::selection{background:var(--yellow);color:var(--navy)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--indigo);outline-offset:2px;border-radius:8px}
+
+/* ============ КНОПКИ ============ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:none;border-radius:14px;padding:14px 26px;font-size:16px;font-weight:700;text-decoration:none;transition:transform .15s,box-shadow .15s,filter .15s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.04)}
+.btn:active{transform:translateY(0)}
+.btn .icon{width:20px;height:20px;flex:none}
+.btn-primary{background:var(--yellow);color:var(--navy);box-shadow:0 6px 18px rgba(255,194,14,.35)}
+.btn-wa{background:var(--green);color:#fff}
+.btn-tg{background:#2aabee;color:#fff}
+.btn-vk{background:var(--blue);color:#fff}
+.btn-outline{background:#fff;color:var(--green);border:2px solid var(--green)}
+.btn-purple{background:var(--purple);color:#fff}
+.btn-sm{padding:10px 18px;font-size:15px;border-radius:12px}
+.soc-row{display:flex;gap:10px;flex-wrap:wrap}
+.soc{width:44px;height:44px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;transition:transform .15s}
+.soc:hover{transform:translateY(-3px) rotate(-6deg)}
+.soc .icon{width:22px;height:22px}
+.soc-wa{background:var(--green)}.soc-tg{background:#2aabee}.soc-vk{background:var(--blue)}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+
+/* ============ ШАПКА ============ */
+.header{position:sticky;top:0;z-index:100;background:#fff;transition:box-shadow .2s}
+.header.scrolled{box-shadow:0 6px 24px rgba(30,42,120,.10)}
+.header-in{display:flex;align-items:center;gap:22px;padding:14px 20px;max-width:1280px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto}
+.logo-pencil{width:30px;height:auto;transform:rotate(-14deg)}
+.logo-text{display:flex;flex-direction:column;line-height:1.05}
+.logo-top{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--navy)}
+.logo-top .icon{width:14px;height:14px;color:var(--yellow-dark)}
+.logo-word{font-size:22px;font-weight:800;letter-spacing:.02em}
+.logo-word b{display:inline-block;font-weight:800}
+.logo-word b:nth-child(1){color:var(--red);transform:rotate(-4deg)}
+.logo-word b:nth-child(2){color:var(--orange);transform:rotate(3deg)}
+.logo-word b:nth-child(3){color:var(--yellow-dark);transform:rotate(-3deg)}
+.logo-word b:nth-child(4){color:var(--green);transform:rotate(2deg)}
+.logo-word b:nth-child(5){color:var(--sky);transform:rotate(-2deg)}
+.logo-word b:nth-child(6){color:var(--indigo);transform:rotate(3deg)}
+.logo-word b:nth-child(7){color:var(--purple);transform:rotate(-3deg)}
+.logo-word b:nth-child(8){color:var(--pink);transform:rotate(4deg)}
+.nav{display:flex;gap:22px}
+.nav a{text-decoration:none;font-size:15px;font-weight:700;color:var(--navy)}
+.nav a:hover{text-decoration:underline wavy;text-decoration-thickness:2px;text-underline-offset:7px}
+.nav a:nth-child(1):hover{text-decoration-color:var(--red)}
+.nav a:nth-child(2):hover{text-decoration-color:var(--orange)}
+.nav a:nth-child(3):hover{text-decoration-color:var(--green)}
+.nav a:nth-child(4):hover{text-decoration-color:var(--sky)}
+.nav a:nth-child(5):hover{text-decoration-color:var(--purple)}
+.nav a:nth-child(6):hover{text-decoration-color:var(--pink)}
+.header .soc{width:38px;height:38px}
+.burger{display:none;width:44px;height:44px;border:none;background:none;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.burger span{width:24px;height:3px;border-radius:3px;background:var(--navy);transition:.25s}
+body.menu-open .burger span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+body.menu-open .burger span:nth-child(2){opacity:0}
+body.menu-open .burger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+/* ============ ГЕРОЙ ============ */
+.hero{padding:56px 0 80px;overflow:hidden}
+.hero-in{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero h1 span{display:inline-block}
+.hl-green{color:var(--green)}
+.hl-sky{color:var(--sky)}
+.hl-orange{color:var(--orange)}
+.hero-lead{margin:22px 0 26px;max-width:520px;color:var(--muted)}
+.badges{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:30px}
+.badge{display:flex;align-items:center;gap:9px;font-size:14px;font-weight:700;color:var(--navy)}
+.badge .icon{width:34px;height:34px;padding:6px;border-radius:50%;flex:none}
+.badge:nth-child(1) .icon{color:var(--red);background:#fdeaea}
+.badge:nth-child(2) .icon{color:var(--green);background:#e8f6e8}
+.badge:nth-child(3) .icon{color:var(--indigo);background:#eceefd}
+.badge:nth-child(4) .icon{color:var(--purple);background:#f5eafa}
+.hero-photo{position:relative}
+.photo{position:relative;border-radius:26px;display:grid;place-items:center;overflow:hidden;background:var(--ph,#fff3d6)}
+.photo .photo-doodle{width:64px;height:64px;color:var(--pd,var(--orange));opacity:.85}
+.photo-note{position:absolute;bottom:10px;right:14px;font-family:var(--hand);font-size:15px;color:#a9a9a9}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-photo .photo{aspect-ratio:1/1.02;border-radius:46% 54% 52% 48% / 46% 44% 56% 54%;box-shadow:var(--shadow)}
+.doodle{position:absolute;pointer-events:none}
+.doodle .icon{width:100%;height:100%}
+.d-sun{top:-34px;right:6%;width:86px;height:86px;color:var(--yellow-dark)}
+.d-cloud{top:-26px;left:-14px;width:96px;height:70px;color:var(--sky)}
+.d-heart{bottom:16%;left:-46px;width:44px;height:44px;color:var(--pink)}
+.d-star{top:34%;left:-58px;width:46px;height:46px;color:var(--green)}
+.d-squiggle{bottom:-18px;left:6%;width:96px;height:36px;color:var(--purple)}
+.d-brush{bottom:-6px;right:-8px;width:110px;height:60px;color:var(--sky)}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(3deg)}}
+@media (prefers-reduced-motion:no-preference){.doodle{animation:float 5s ease-in-out infinite}}
+
+/* ============ ПОЧЕМУ МЫ ============ */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.why-card{border:2px solid var(--line);border-radius:var(--radius);padding:28px 24px;text-align:center;transition:transform .2s,box-shadow .2s;background:#fff}
+.why-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.why-card .icon{width:46px;height:46px;margin:0 auto 14px}
+.why-card:nth-child(1) .icon{color:var(--green)}
+.why-card:nth-child(2) .icon{color:var(--red)}
+.why-card:nth-child(3) .icon{color:var(--blue)}
+.why-card:nth-child(4) .icon{color:var(--yellow-dark)}
+.why-card:nth-child(5) .icon{color:var(--indigo)}
+.why-card:nth-child(6) .icon{color:var(--pink)}
+.why-card h3{margin-bottom:8px;font-size:18px}
+.why-card p{font-size:15px;color:var(--muted)}
+
+/* ============ ДЕНЬ РЕБЁНКА ============ */
+.day{background:var(--bg-soft)}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:26px;margin-top:44px}
+.step{position:relative;text-align:center}
+.step-icon{width:64px;height:64px;margin:0 auto 14px;border-radius:50%;background:#fff;border:3px solid currentColor;display:grid;place-items:center}
+.step-icon .icon{width:30px;height:30px}
+.step:nth-child(1){color:var(--green)}
+.step:nth-child(2){color:var(--red)}
+.step:nth-child(3){color:var(--yellow-dark)}
+.step:nth-child(4){color:var(--sky)}
+.step:nth-child(5){color:var(--pink)}
+.step h3{font-size:16px;margin-bottom:6px}
+.step p{font-size:14px;color:var(--muted)}
+.step:not(:last-child)::after{content:"";position:absolute;top:32px;left:calc(50% + 40px);width:calc(100% - 80px);border-top:3px dashed #d8d3c8}
+.day .cta-row{justify-content:center;margin-top:44px}
+
+/* ============ ПРОДЛЁНКА ============ */
+.prolonga-card{display:grid;grid-template-columns:1fr 1fr;gap:36px;border:2px solid var(--line);border-radius:28px;padding:36px;background:#fff;box-shadow:var(--shadow)}
+.prolonga-card .photo{aspect-ratio:4/3;--ph:#e8f6e8;--pd:var(--green)}
+.price-tag{display:inline-block;background:var(--green);color:#fff;font-weight:800;font-size:24px;padding:12px 26px;border-radius:16px;transform:rotate(-2deg);margin:6px 0 18px}
+.includes{margin:0 0 24px;display:grid;gap:10px}
+.includes li{display:flex;gap:10px;align-items:flex-start;font-size:16px}
+.includes .icon{width:20px;height:20px;color:var(--green);flex:none;margin-top:4px}
+.schools{margin-top:26px}
+.schools-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:10px}
+.chips{display:flex;gap:10px;flex-wrap:wrap}
+.chip{font-size:14px;font-weight:700;padding:6px 14px;border-radius:999px;border:2px dashed currentColor}
+.chip:nth-child(8n+1){color:var(--red)}
+.chip:nth-child(8n+2){color:var(--orange)}
+.chip:nth-child(8n+3){color:var(--yellow-dark)}
+.chip:nth-child(8n+4){color:var(--green)}
+.chip:nth-child(8n+5){color:var(--sky)}
+.chip:nth-child(8n+6){color:var(--blue)}
+.chip:nth-child(8n+7){color:var(--purple)}
+.chip:nth-child(8n+8){color:var(--pink)}
+
+/* ============ НАПРАВЛЕНИЯ ============ */
+.dir-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.dir-card{border:2px solid var(--line);border-radius:18px;padding:22px 16px;text-align:center;transition:transform .2s,box-shadow .2s;background:#fff}
+.dir-card:hover{transform:translateY(-4px) rotate(-1deg);box-shadow:var(--shadow)}
+.dir-card .icon{width:38px;height:38px;margin:0 auto 10px}
+.dir-card:nth-child(8n+1) .icon{color:var(--green)}
+.dir-card:nth-child(8n+2) .icon{color:var(--sky)}
+.dir-card:nth-child(8n+3) .icon{color:var(--orange)}
+.dir-card:nth-child(8n+4) .icon{color:var(--indigo)}
+.dir-card:nth-child(8n+5) .icon{color:var(--pink)}
+.dir-card:nth-child(8n+6) .icon{color:var(--purple)}
+.dir-card:nth-child(8n+7) .icon{color:var(--red)}
+.dir-card:nth-child(8n+8) .icon{color:var(--yellow-dark)}
+.dir-card h3{font-size:16px;margin-bottom:6px}
+.dir-card p{font-size:13.5px;color:var(--muted)}
+.dir .cta-row{justify-content:center;margin-top:36px}
+
+/* ============ ЛЕТНИЙ КЛУБ ============ */
+.summer-card{position:relative;border-radius:28px;background:linear-gradient(120deg,#e3f4fd,#fff8ee);padding:44px;display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center;overflow:hidden}
+.summer-card h2{text-align:left;margin-bottom:12px}
+.summer-card ul{margin:18px 0 26px;display:grid;gap:10px}
+.summer-card li{display:flex;gap:10px;align-items:flex-start}
+.summer-card li .icon{width:20px;height:20px;color:var(--orange);flex:none;margin-top:4px}
+.summer-card .photo{aspect-ratio:4/3;--ph:#ffe8f1;--pd:var(--pink)}
+
+/* ============ ГАЛЕРЕЯ ============ */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.gallery-grid .photo{aspect-ratio:4/3}
+.gallery-grid .photo:nth-child(6n+1){--ph:#fff3d6;--pd:var(--yellow-dark)}
+.gallery-grid .photo:nth-child(6n+2){--ph:#e8f6e8;--pd:var(--green)}
+.gallery-grid .photo:nth-child(6n+3){--ph:#e3f4fd;--pd:var(--sky)}
+.gallery-grid .photo:nth-child(6n+4){--ph:#ffe8f1;--pd:var(--pink)}
+.gallery-grid .photo:nth-child(6n+5){--ph:#f5eafa;--pd:var(--purple)}
+.gallery-grid .photo:nth-child(6n+6){--ph:#fdeaea;--pd:var(--red)}
+.gallery .cta-row{justify-content:center;margin-top:30px}
+
+/* ============ ОТЗЫВЫ ============ */
+.reviews{background:var(--bg-soft)}
+.slider{overflow:hidden;max-width:780px;margin:0 auto}
+.slider-track{display:flex;transition:transform .5s ease}
+.review{flex:0 0 100%;padding:6px}
+.review-in{background:#fff;border:2px solid var(--line);border-radius:24px;padding:36px 40px;position:relative;text-align:center}
+.review-in::before{content:"«";position:absolute;top:14px;left:26px;font-size:64px;font-weight:800;color:var(--yellow);font-family:var(--hand)}
+.review-in::after{content:"";position:absolute;top:22px;right:28px;width:34px;height:34px;color:var(--sky);background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 8 20 56 56 24 8 24 44 56Z' fill='none' stroke='black' stroke-width='6' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 8 20 56 56 24 8 24 44 56Z' fill='none' stroke='black' stroke-width='6' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.review p{font-size:17px;font-style:italic;color:var(--text)}
+.review cite{display:block;margin-top:16px;font-style:normal;font-weight:700;color:var(--navy);font-size:15px}
+.dots{display:flex;gap:9px;justify-content:center;margin-top:22px}
+.dot{width:11px;height:11px;border-radius:50%;border:2px solid var(--navy);background:#fff;padding:0;transition:.2s}
+.dot.active{background:var(--yellow);border-color:var(--yellow);transform:scale(1.25)}
+.reviews .cta-row{justify-content:center;margin-top:26px}
+
+/* ============ ДОКУМЕНТЫ ============ */
+.docs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:860px;margin:0 auto}
+.doc{border-radius:14px;background:#fff;padding:34px 22px;text-align:center;position:relative;box-shadow:var(--shadow)}
+.doc::before{content:"";position:absolute;inset:8px;border:3px solid currentColor;border-radius:8px;pointer-events:none}
+.doc:nth-child(1){color:var(--orange)}
+.doc:nth-child(2){color:var(--sky)}
+.doc:nth-child(3){color:var(--green)}
+.doc .icon{width:40px;height:40px;margin:0 auto 12px}
+.doc h3{font-size:15px}
+.doc span{display:block;font-size:12.5px;color:var(--muted);margin-top:4px}
+.docs .cta-row{justify-content:center;margin-top:30px}
+
+/* ============ ВОПРОСЫ / ДА ============ */
+.qa{display:flex;gap:26px;justify-content:center;flex-wrap:wrap;margin-top:36px}
+.qa-item{text-align:center;max-width:220px}
+.qa-item .q{font-size:16px;font-weight:700;color:var(--navy)}
+.qa-item .a{font-family:var(--hand);font-size:44px;line-height:1;display:block;margin-top:6px;transform:rotate(-3deg)}
+.qa-item:nth-child(1) .a{color:var(--green)}
+.qa-item:nth-child(2) .a{color:var(--orange)}
+.qa-item:nth-child(3) .a{color:var(--sky)}
+
+/* ============ КОНТАКТЫ ============ */
+.contacts-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
+.contact-list{display:grid;gap:16px;margin:26px 0}
+.contact-list li{display:flex;gap:14px;align-items:flex-start}
+.contact-list .icon{width:24px;height:24px;color:var(--purple);flex:none;margin-top:3px}
+.contact-list a{color:var(--navy);font-weight:700;text-decoration:none}
+.contact-list a:hover{text-decoration:underline wavy;text-decoration-color:var(--pink);text-underline-offset:5px}
+.contact-list small{display:block;color:var(--muted);font-size:14px}
+.map{position:relative;min-height:320px;border-radius:24px;overflow:hidden;border:2px solid var(--line);
+  background:#eef4f8;background-image:linear-gradient(#dfe9f3 1px,transparent 1px),linear-gradient(90deg,#dfe9f3 1px,transparent 1px);background-size:26px 26px}
+.map-pin{position:absolute;top:44%;left:50%;transform:translate(-50%,-50%);width:52px;height:52px;color:var(--red)}
+.map .btn{position:absolute;bottom:18px;left:50%;transform:translateX(-50%)}
+.map .btn:hover{transform:translateX(-50%) translateY(-2px)}
+
+/* ============ ФИНАЛЬНЫЙ CTA ============ */
+.cta-band{background:var(--purple);border-radius:28px;color:#fff;padding:40px 44px;display:flex;gap:28px;align-items:center;justify-content:space-between;flex-wrap:wrap;transform:rotate(-.4deg);box-shadow:0 16px 40px rgba(142,68,173,.35)}
+.cta-band p{font-size:clamp(18px,2.2vw,24px);font-weight:800;max-width:640px;color:#fff}
+.cta-band .cta-row{margin:0}
+
+/* ============ ФУТЕР ============ */
+.footer{padding:34px 0;border-top:2px solid var(--line);margin-top:72px}
+.footer-in{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.footer-in .logo-word{font-size:17px}
+.footer-in .logo-pencil{width:22px}
+.copy{font-size:14px;color:var(--muted);margin-right:auto}
+.footer nav{display:flex;gap:18px}
+.footer nav a{font-size:13.5px;color:var(--muted)}
+.footer nav a:hover{color:var(--navy)}
+
+/* ============ МОДАЛКА ============ */
+.modal{position:fixed;inset:0;z-index:200;background:rgba(20,22,50,.5);display:grid;place-items:center;padding:20px;opacity:0;transition:opacity .25s}
+.modal[hidden]{display:none}
+.modal.open{opacity:1}
+.modal-box{background:#fff;border-radius:26px;padding:34px;max-width:470px;width:100%;position:relative;transform:translateY(16px) scale(.97);transition:transform .25s}
+.modal.open .modal-box{transform:none}
+.modal-box h3{font-size:24px;margin-bottom:6px}
+.modal-box .modal-sub{font-size:14.5px;color:var(--muted);margin-bottom:20px}
+.modal-close{position:absolute;top:14px;right:14px;width:40px;height:40px;border:none;background:#f2f3fa;border-radius:50%;font-size:20px;color:var(--navy);line-height:1}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;border:2px solid #e3e6f5;border-radius:12px;padding:12px 14px;font:inherit;font-size:16px;color:var(--text);background:#fff}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--sky);outline:none}
+.field textarea{resize:vertical;min-height:74px}
+.form-note{margin-top:14px;font-size:14px;color:var(--green);font-weight:700}
+.modal .btn{width:100%}
+
+/* ============ ПОЯВЛЕНИЕ ============ */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .doodle{animation:none}
+}
+
+/* ============ АДАПТИВ ============ */
+@media (max-width:1024px){
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .dir-grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(3,1fr)}
+  .step:not(:last-child)::after{display:none}
+  .hero-in{grid-template-columns:1fr;gap:56px}
+  .hero-photo{max-width:520px;margin:0 auto}
+}
+@media (max-width:860px){
+  .nav{position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;gap:0;padding:10px 20px 20px;display:none;box-shadow:0 20px 30px rgba(30,42,120,.12)}
+  .nav a{padding:12px 4px;border-bottom:1px solid var(--line);font-size:17px}
+  body.menu-open .nav{display:flex}
+  .burger{display:flex}
+  .header .soc{display:none}
+  .prolonga-card,.summer-card,.contacts-grid{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .docs-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:600px){
+  section{padding:52px 0}
+  .why-grid,.dir-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr;gap:30px}
+  .gallery-grid{grid-template-columns:1fr}
+  .docs-grid{grid-template-columns:1fr}
+  .summer-card,.prolonga-card{padding:26px}
+  .cta-band{padding:30px 24px}
+  .header .btn-primary{padding:10px 16px;font-size:14px}
+  .d-heart,.d-star{display:none}
+}
+</style>
+</head>
+<body id="top">
+
+<!-- ======= SVG-СПРАЙТ (логотип, дудлы, иконки) ======= -->
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <!-- Карандаш-маскот -->
+  <symbol id="pencil" viewBox="0 0 120 340">
+    <rect x="30" y="6" width="60" height="46" rx="20" fill="#f45b9c"/>
+    <rect x="38" y="12" width="12" height="26" rx="6" fill="#ff8fc0" opacity=".8"/>
+    <rect x="26" y="46" width="68" height="30" rx="8" fill="#c3c8d4"/>
+    <rect x="26" y="54" width="68" height="4" fill="#9aa2b1"/>
+    <rect x="26" y="64" width="68" height="4" fill="#9aa2b1"/>
+    <rect x="26" y="76" width="68" height="150" fill="#ffc20e"/>
+    <path d="M48 78v146M72 78v146" stroke="#f2a90a" stroke-width="4" opacity=".7"/>
+    <path d="M40 126q7-6 14-2M66 124q7-4 14 2" stroke="#222" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <circle cx="47" cy="140" r="6" fill="#222"/><circle cx="73" cy="140" r="6" fill="#222"/>
+    <circle cx="49" cy="138" r="2" fill="#fff"/><circle cx="75" cy="138" r="2" fill="#fff"/>
+    <circle cx="37" cy="158" r="7" fill="#ff8fb3" opacity=".85"/><circle cx="83" cy="158" r="7" fill="#ff8fb3" opacity=".85"/>
+    <path d="M48 156q12 12 24 0" stroke="#222" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path d="M26 226q9 12 17 0t17 0 17 0 17 0L60 308Z" fill="#f6e3c5"/>
+    <path d="M52 284q8 8 16 0L60 308Z" fill="#2b2b2b"/>
+  </symbol>
+  <!-- Дудлы -->
+  <symbol id="d-sun" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><circle cx="32" cy="32" r="13"/><path d="M36 27a8 8 0 1 0 0 11"/><path d="M32 5v8M32 51v8M5 32h8M51 32h8M12 12l6 6M46 46l6 6M52 12l-6 6M18 46l-6 6"/></g></symbol>
+  <symbol id="d-cloud" viewBox="0 0 64 64"><path d="M15 46a9 9 0 0 1-1-18 13 13 0 0 1 25-4 9 9 0 0 1 8 22Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/></symbol>
+  <symbol id="d-heart" viewBox="0 0 64 64"><path d="M32 54S10 40 8 26C6.5 15 15 8 23 10c4 1 7 4 9 7 2-3 5-6 9-7 8-2 16.5 5 15 16-2 14-24 28-24 28Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/></symbol>
+  <symbol id="d-star" viewBox="0 0 64 64"><path d="M32 8 20 56 56 24 8 24 44 56Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/></symbol>
+  <symbol id="d-squiggle" viewBox="0 0 96 32"><path d="M4 26q10-24 20 0t20 0 20 0 20 0" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></symbol>
+  <!-- Иконки (stroke) -->
+  <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><path d="M9 11.5l2 2 4-4"/></g></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20S4.5 15.5 3 11c-1-3.5 1.5-7 5-7 1.8 0 3.2 1 4 2.4C12.8 5 14.2 4 16 4c3.5 0 6 3.5 5 7-1.5 4.5-9 9-9 9Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="9" r="3"/><path d="M4 19c.5-3 2.5-5 5-5s4.5 2 5 5"/><circle cx="16.5" cy="10" r="2.5"/><path d="M15.5 14.5c2.5 0 4 1.7 4.5 4.5"/></g></symbol>
+  <symbol id="i-smile" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M9 10h.01M15 10h.01"/><path d="M8.5 14c1 1.4 2.2 2 3.5 2s2.5-.6 3.5-2"/></g></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.5 6 6.5.5-5 4.2 1.6 6.3-5.6-3.5-5.6 3.5L8 14.2 3 10l6.5-.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9a1 1 0 0 1-1 1h-4v-7h-6v7H5a1 1 0 0 1-1-1Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 5.5 14.5 4 17.5 4 20 5.5V19c-2.5-1.5-5.5-1.5-8 0-2.5-1.5-5.5-1.5-8 0Z"/><path d="M12 5.5V19"/></g></symbol>
+  <symbol id="i-backpack" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 8h12a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/><path d="M9 21v-6h6v6"/></g></symbol>
+  <symbol id="i-grad" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M3 9l9-4 9 4-9 4Z"/><path d="M7 11.5V16c0 1.5 2.2 3 5 3s5-1.5 5-3v-4.5"/><path d="M21 9v5"/></g></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13 13 0 0 1 0 18M12 3a13 13 0 0 0 0 18"/></g></symbol>
+  <symbol id="i-palette" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 .5 18c1.6 0 2.2-1.1 1.6-2.2-.6-1.2 0-2.3 1.4-2.3H17a4 4 0 0 0 4-4c0-5-4-9.5-9-9.5Z"/><circle cx="8" cy="10" r="1"/><circle cx="12" cy="7.5" r="1"/><circle cx="16" cy="10" r="1"/></g></symbol>
+  <symbol id="i-note" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17.5V6l9-2v10.5"/><circle cx="6.8" cy="17.5" r="2.3"/><circle cx="15.8" cy="14.5" r="2.3"/></g></symbol>
+  <symbol id="i-pot" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 11h12v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4Z"/><path d="M4 11h16"/><path d="M10 7c0-1.5 1-1.5 1-3M14 7c0-1.5 1-1.5 1-3"/></g></symbol>
+  <symbol id="i-scissors" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><path d="M8.2 7.4 20 18M8.2 16.6 20 6"/></g></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></g></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></g></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l1.5 4-2.5 1.5a12 12 0 0 0 6.5 6.5L16 13.5l4 1.5v4a2 2 0 0 1-2 2A17 17 0 0 1 3 6a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="4" y="6" width="16" height="12" rx="2"/><path d="M4 8l8 5 8-5"/></g></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7Z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></g></symbol>
+  <!-- Мессенджеры (fill) -->
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></symbol>
+  <symbol id="i-tg" viewBox="0 0 24 24"><path fill="currentColor" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.51-1.535 5.85-2.547 7.02-3.038 3.343-1.396 4.038-1.639 4.491-1.647z"/></symbol>
+  <symbol id="i-vk" viewBox="0 0 24 24"><path fill="currentColor" d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.118-.254.322-.491.762-.491h1.744c.525 0 .644.271.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.152.49-.102.744-.593.744z"/></symbol>
+</svg>
+
+<!-- ======= ШАПКА ======= -->
+<header class="header" id="header">
+  <div class="header-in">
+    <a class="logo" href="#top" aria-label="Детский центр «Карандаш» — на главную">
+      <svg class="logo-pencil" aria-hidden="true"><use href="#pencil"/></svg>
+      <span class="logo-text">
+        <span class="logo-top"><svg class="icon" aria-hidden="true"><use href="#d-sun"/></svg>детский центр</span>
+        <span class="logo-word" aria-hidden="true"><b>К</b><b>А</b><b>Р</b><b>А</b><b>Н</b><b>Д</b><b>А</b><b>Ш</b></span>
+        <span class="sr-only">Карандаш</span>
+      </span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Основное меню">
+      <a href="#prodlenka">Продлёнка</a>
+      <a href="#napravleniya">Направления</a>
+      <a href="#letniy-klub">Летний клуб</a>
+      <a href="#galereya">Галерея</a>
+      <a href="#otzyvy">Отзывы</a>
+      <a href="#kontakty">Контакты</a>
+    </nav>
+    <div class="soc-row" aria-label="Мессенджеры">
+      <a class="soc soc-wa" href="https://wa.me/79189734171" target="_blank" rel="noopener" aria-label="Написать в WhatsApp"><svg class="icon"><use href="#i-wa"/></svg></a>
+      <a class="soc soc-tg" href="https://t.me/+79189734171" target="_blank" rel="noopener" aria-label="Написать в Telegram"><svg class="icon"><use href="#i-tg"/></svg></a>
+      <a class="soc soc-vk" href="https://vk.com/" target="_blank" rel="noopener" aria-label="Мы во ВКонтакте"><svg class="icon"><use href="#i-vk"/></svg></a>
+    </div>
+    <button class="btn btn-primary btn-sm" data-modal>Записаться</button>
+    <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+<!-- ======= ГЕРОЙ ======= -->
+<section class="hero">
+  <div class="container hero-in">
+    <div>
+      <h1>Место, где ребёнок <span class="hl-green">в&nbsp;безопасности</span>, <span class="hl-sky">развивается</span> и <span class="hl-orange">с&nbsp;удовольствием</span> проводит каждый день</h1>
+      <p class="hero-lead">Пока вы занимаетесь своими делами, ваш ребёнок находится в месте, где о нём заботятся, помогают с учёбой, развивают таланты и каждый день делают счастливее.</p>
+      <div class="badges">
+        <span class="badge"><svg class="icon"><use href="#i-heart"/></svg>Более 10 лет опыта</span>
+        <span class="badge"><svg class="icon"><use href="#i-shield"/></svg>Безопасная среда</span>
+        <span class="badge"><svg class="icon"><use href="#i-book"/></svg>Помощь с уроками</span>
+        <span class="badge"><svg class="icon"><use href="#i-palette"/></svg>Творческое развитие</span>
+      </div>
+      <div class="cta-row">
+        <button class="btn btn-primary" data-modal>Записаться</button>
+        <a class="btn btn-wa" href="https://wa.me/79189734171" target="_blank" rel="noopener"><svg class="icon"><use href="#i-wa"/></svg>Написать в WhatsApp</a>
+        <a class="btn btn-tg" href="https://t.me/+79189734171" target="_blank" rel="noopener"><svg class="icon"><use href="#i-tg"/></svg>Написать в Telegram</a>
+        <a class="btn btn-outline" data-modal>Оставить заявку</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <span class="doodle d-sun"><svg class="icon"><use href="#d-sun"/></svg></span>
+      <span class="doodle d-cloud"><svg class="icon"><use href="#d-cloud"/></svg></span>
+      <span class="doodle d-heart"><svg class="icon"><use href="#d-heart"/></svg></span>
+      <span class="doodle d-star"><svg class="icon"><use href="#d-star"/></svg></span>
+      <span class="doodle d-squiggle"><svg class="icon"><use href="#d-squiggle"/></svg></span>
+      <figure class="photo" style="--ph:#fff3d6;--pd:var(--orange)">
+        <!-- Замените на реальное фото: <img src="img/hero.jpg" alt="Счастливые дети в детском центре «Карандаш»"> -->
+        <svg class="photo-doodle" aria-hidden="true"><use href="#d-sun"/></svg>
+        <figcaption class="photo-note">место для фото</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ======= ПОЧЕМУ МЫ ======= -->
+<section id="why">
+  <div class="container">
+    <h2>Почему родители выбирают «Карандаш»</h2>
+    <div class="why-grid">
+      <article class="why-card reveal"><svg class="icon"><use href="#i-shield"/></svg><h3>Безопасность прежде всего</h3><p>Ребёнок под присмотром с момента, когда мы забираем его из школы, и до момента, когда вы его встречаете.</p></article>
+      <article class="why-card reveal"><svg class="icon"><use href="#i-heart"/></svg><h3>Помощь с уроками</h3><p>Выполняем домашние задания, объясняем сложные темы, учим учиться — без слёз и стресса.</p></article>
+      <article class="why-card reveal"><svg class="icon"><use href="#i-users"/></svg><h3>Развитие и творчество</h3><p>Творческие занятия, кружки, мастер-классы и проекты каждый день.</p></article>
+      <article class="why-card reveal"><svg class="icon"><use href="#i-smile"/></svg><h3>Счастливая атмосфера</h3><p>Дружная атмосфера, игры, общение и прогулки на свежем воздухе.</p></article>
+      <article class="why-card reveal"><svg class="icon"><use href="#i-star"/></svg><h3>Индивидуальный подход</h3><p>Учитываем характер, интересы и потребности каждого ребёнка.</p></article>
+      <article class="why-card reveal"><svg class="icon"><use href="#i-home"/></svg><h3>Как вторая семья</h3><p>Дети чувствуют себя важными, нужными и любимыми.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ======= ДЕНЬ РЕБЁНКА ======= -->
+<section class="day">
+  <div class="container">
+    <h2>Как проходит день ребёнка</h2>
+    <div class="steps">
+      <div class="step reveal"><span class="step-icon"><svg class="icon"><use href="#i-backpack"/></svg></span><h3>Встреча после школы</h3><p>Встречаем, кормим и помогаем переключиться.</p></div>
+      <div class="step reveal"><span class="step-icon"><svg class="icon"><use href="#i-book"/></svg></span><h3>Домашние задания</h3><p>Помогаем сделать уроки в спокойной, дружеской обстановке.</p></div>
+      <div class="step reveal"><span class="step-icon"><svg class="icon"><use href="#i-sun"/></svg></span><h3>Прогулка и отдых</h3><p>Свежий воздух, подвижные игры, отдых.</p></div>
+      <div class="step reveal"><span class="step-icon"><svg class="icon"><use href="#i-palette"/></svg></span><h3>Творчество и занятия</h3><p>Развивающие и творческие занятия по расписанию.</p></div>
+      <div class="step reveal"><span class="step-icon"><svg class="icon"><use href="#i-users"/></svg></span><h3>Игры и общение</h3><p>Настольные игры, общение, дружеская обстановка.</p></div>
+    </div>
+    <div class="cta-row">
+      <button class="btn btn-primary" data-modal data-topic="Продлёнка">Записаться</button>
+      <a class="soc soc-wa" href="https://wa.me/79189734171" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="icon"><use href="#i-wa"/></svg></a>
+      <a class="soc soc-tg" href="https://t.me/+79189734171" target="_blank" rel="noopener" aria-label="Telegram"><svg class="icon"><use href="#i-tg"/></svg></a>
+      <a class="soc soc-vk" href="https://vk.com/" target="_blank" rel="noopener" aria-label="ВКонтакте"><svg class="icon"><use href="#i-vk"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ======= ПРОДЛЁНКА ======= -->
+<section id="prodlenka">
+  <div class="container">
+    <h2>Продлёнка «Карандаш»</h2>
+    <p class="section-sub">Главная услуга центра: ребёнок под присмотром, делает уроки, развивается и интересно проводит время — а вы спокойно работаете.</p>
+    <div class="prolonga-card reveal">
+      <figure class="photo" style="--ph:#e8f6e8;--pd:var(--green)">
+        <!-- Замените на реальное фото: <img src="img/prodlenka.jpg" alt="Дети делают домашнее задание в продлёнке"> -->
+        <svg class="photo-doodle" aria-hidden="true"><use href="#i-book"/></svg>
+        <figcaption class="photo-note">место для фото</figcaption>
+      </figure>
+      <div>
+        <span class="price-tag">18 000 ₽ в месяц</span>
+        <ul class="includes">
+          <li><svg class="icon"><use href="#i-check"/></svg>Встреча после школы и сопровождение</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Помощь с домашними заданиями</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Прогулки на свежем воздухе</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Игры и общение со сверстниками</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Творческие занятия и развитие</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Обед и полдник</li>
+        </ul>
+        <div class="cta-row">
+          <button class="btn btn-primary" data-modal data-topic="Продлёнка">Записаться на продлёнку</button>
+        </div>
+        <div class="schools">
+          <p class="schools-title">Встречаем детей из школ:</p>
+          <div class="chips">
+            <span class="chip">№ 2</span><span class="chip">№ 3</span><span class="chip">№ 8</span><span class="chip">№ 12</span><span class="chip">№ 32</span><span class="chip">№ 35</span><span class="chip">№ 36</span><span class="chip">№ 48</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= НАПРАВЛЕНИЯ ======= -->
+<section id="napravleniya">
+  <div class="container">
+    <h2>Другие направления</h2>
+    <p class="section-sub">Кроме продлёнки — занятия, на которых ребёнок раскрывает свои таланты.</p>
+    <div class="dir-grid">
+      <article class="dir-card reveal"><svg class="icon"><use href="#i-grad"/></svg><h3>Подготовка к школе</h3><p>Первые навыки учёбы в игровой форме — без страха перед школой.</p></article>
+      <article class="dir-card reveal"><svg class="icon"><use href="#i-globe"/></svg><h3>Английский язык</h3><p>Знакомим с языком легко и с удовольствием.</p></article>
+      <article class="dir-card reveal"><svg class="icon"><use href="#i-users"/></svg><h3>Репетиторство</h3><p>Подтягиваем школьные предметы индивидуально.</p></article>
+      <article class="dir-card reveal"><svg class="icon"><use href="#i-palette"/></svg><h3>Художественная студия</h3><p>Учимся видеть красоту и выражать её на бумаге.</p></article>
+      <article class="dir-card reveal"><svg class="icon"><use href="#i-note"/></svg><h3>Танцы</h3><p>Движение, ритм и уверенность в себе.</p></article>
+      <article class="dir-card reveal"><svg class="icon"><use href="#i-star"/></svg><h3>Актерское мастерство</h3><p>Раскрепощаемся, развиваем речь и воображение.</p></article>
+      <article class="dir-card reveal"><svg class="icon"><use href="#i-pot"/></svg><h3>Кулинарные занятия</h3><p>Готовим простые блюда и радуем семью.</p></article>
+      <article class="dir-card reveal"><svg class="icon"><use href="#i-scissors"/></svg><h3>Творческая мастерская</h3><p>Мастерим поделки своими руками.</p></article>
+    </div>
+    <div class="cta-row">
+      <button class="btn btn-primary" data-modal>Записаться</button>
+      <a class="soc soc-wa" href="https://wa.me/79189734171" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="icon"><use href="#i-wa"/></svg></a>
+      <a class="soc soc-tg" href="https://t.me/+79189734171" target="_blank" rel="noopener" aria-label="Telegram"><svg class="icon"><use href="#i-tg"/></svg></a>
+      <a class="soc soc-vk" href="https://vk.com/" target="_blank" rel="noopener" aria-label="ВКонтакте"><svg class="icon"><use href="#i-vk"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ======= ЛЕТНИЙ КЛУБ ======= -->
+<section id="letniy-klub">
+  <div class="container">
+    <div class="summer-card reveal">
+      <div>
+        <h2>Летний клуб «Карандаш»</h2>
+        <p>Незабываемые каникулы с пользой и удовольствием — пока вы на работе, ребёнок проводит лето с радостью.</p>
+        <ul>
+          <li><svg class="icon"><use href="#i-check"/></svg>Игры, творчество и прогулки каждый день</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Мастер-классы и новые друзья</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Сопровождение и питание включены</li>
+        </ul>
+        <div class="cta-row">
+          <button class="btn btn-primary" data-modal data-topic="Летний клуб">Записаться в Летний клуб</button>
+        </div>
+      </div>
+      <figure class="photo" style="--ph:#ffe8f1;--pd:var(--pink)">
+        <!-- Замените на реальное фото: <img src="img/summer.jpg" alt="Дети играют на прогулке в летнем клубе"> -->
+        <svg class="photo-doodle" aria-hidden="true"><use href="#d-sun"/></svg>
+        <figcaption class="photo-note">место для фото</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ======= ГАЛЕРЕЯ ======= -->
+<section id="galereya">
+  <div class="container">
+    <h2>Фотогалерея</h2>
+    <p class="section-sub">Живые моменты из жизни центра: занятия, игры, прогулки и праздники.</p>
+    <div class="gallery-grid">
+      <figure class="photo reveal"><svg class="photo-doodle" aria-hidden="true"><use href="#i-palette"/></svg><figcaption class="photo-note">место для фото</figcaption><!-- <img src="img/gallery-1.jpg" alt="..."> --></figure>
+      <figure class="photo reveal"><svg class="photo-doodle" aria-hidden="true"><use href="#i-book"/></svg><figcaption class="photo-note">место для фото</figcaption><!-- <img src="img/gallery-2.jpg" alt="..."> --></figure>
+      <figure class="photo reveal"><svg class="photo-doodle" aria-hidden="true"><use href="#i-sun"/></svg><figcaption class="photo-note">место для фото</figcaption><!-- <img src="img/gallery-3.jpg" alt="..."> --></figure>
+      <figure class="photo reveal"><svg class="photo-doodle" aria-hidden="true"><use href="#i-heart"/></svg><figcaption class="photo-note">место для фото</figcaption><!-- <img src="img/gallery-4.jpg" alt="..."> --></figure>
+      <figure class="photo reveal"><svg class="photo-doodle" aria-hidden="true"><use href="#i-star"/></svg><figcaption class="photo-note">место для фото</figcaption><!-- <img src="img/gallery-5.jpg" alt="..."> --></figure>
+      <figure class="photo reveal"><svg class="photo-doodle" aria-hidden="true"><use href="#i-note"/></svg><figcaption class="photo-note">место для фото</figcaption><!-- <img src="img/gallery-6.jpg" alt="..."> --></figure>
+    </div>
+    <div class="cta-row">
+      <!-- Замените ссылку на альбом с реальными фото (например, VK-альбом) -->
+      <a class="btn btn-purple btn-sm" href="#galereya">Смотреть все фото</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======= ОТЗЫВЫ ======= -->
+<section class="reviews" id="otzyvy">
+  <div class="container">
+    <h2>Отзывы родителей</h2>
+    <div class="slider" id="reviewsSlider">
+      <div class="slider-track" id="reviewsTrack">
+        <blockquote class="review"><div class="review-in"><p>Прекрасный центр! Ребёнок с радостью идёт каждый день: интересные занятия, внимательные педагоги. Спасибо за заботу и спокойствие!</p><cite>— Мария, мама Егора</cite></div></blockquote>
+        <blockquote class="review"><div class="review-in"><p>Работаю до вечера, и продлёнка стала спасением: забирают из школы, делают уроки, гуляют. Дочка довольна, а я спокойна.</p><cite>— Анна, мама Софии</cite></div></blockquote>
+        <blockquote class="review"><div class="review-in"><p>Очень тёплая атмосфера, как дома. Сын ходит в художественную студию — каждое занятие с удовольствием и с результатом!</p><cite>— Ольга, мама Миши</cite></div></blockquote>
+        <blockquote class="review"><div class="review-in"><p>Ходим уже второй год. Надёжно, по-домашнему, с душой. Ребёнок развивается, а у меня наконец спокойные рабочие дни.</p><cite>— Наталья, мама Кати и Максима</cite></div></blockquote>
+      </div>
+    </div>
+    <div class="dots" id="reviewsDots" role="tablist" aria-label="Листать отзывы"></div>
+    <div class="cta-row">
+      <a class="btn btn-purple btn-sm" href="https://vk.com/" target="_blank" rel="noopener">Читать больше отзывов</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======= ДОКУМЕНТЫ ======= -->
+<section class="docs" id="docs">
+  <div class="container">
+    <h2>Сертификаты и благодарности</h2>
+    <p class="section-sub">Нам доверяют — и это подтверждено документами и благодарственными письмами.</p>
+    <div class="docs-grid">
+      <div class="doc reveal"><svg class="icon"><use href="#i-doc"/></svg><h3>Сертификат</h3><span>скан будет добавлен</span></div>
+      <div class="doc reveal"><svg class="icon"><use href="#i-doc"/></svg><h3>Благодарственное письмо</h3><span>скан будет добавлен</span></div>
+      <div class="doc reveal"><svg class="icon"><use href="#i-doc"/></svg><h3>Диплом</h3><span>скан будет добавлен</span></div>
+    </div>
+    <div class="cta-row"><a class="btn btn-purple btn-sm" href="#docs">Смотреть все документы</a></div>
+  </div>
+</section>
+
+<!-- ======= КОНТАКТЫ ======= -->
+<section id="kontakty">
+  <div class="container">
+    <h2>Контакты</h2>
+    <div class="qa">
+      <div class="qa-item"><span class="q">Ребёнку будет безопасно?</span><span class="a">Да!</span></div>
+      <div class="qa-item"><span class="q">Ребёнку будет интересно?</span><span class="a">Да!</span></div>
+      <div class="qa-item"><span class="q">Могу ли я спокойно работать?</span><span class="a">Да!</span></div>
+    </div>
+    <div class="contacts-grid" style="margin-top:44px">
+      <div>
+        <h3 style="font-size:24px">Остались вопросы? Мы на связи!</h3>
+        <ul class="contact-list">
+          <li><svg class="icon"><use href="#i-pin"/></svg><div>Краснодар, ул. Леваневского, 22<small>удобно добираться из центра города</small></div></li>
+          <li><svg class="icon"><use href="#i-phone"/></svg><div><a href="tel:+79189734171">+7 (918) 973-41-71</a><br><a href="tel:+79180055785">+7 (918) 00-55-785</a><small>WhatsApp и Telegram — на обоих номерах</small></div></li>
+          <li><svg class="icon"><use href="#i-mail"/></svg><div><a href="mailto:karandashikistochka@mail.ru">karandashikistochka@mail.ru</a></div></li>
+          <li><svg class="icon"><use href="#i-clock"/></svg><div>07:30 – 19:00<small>понедельник – пятница</small></div></li>
+        </ul>
+        <div class="cta-row">
+          <button class="btn btn-primary" data-modal>Записаться</button>
+          <a class="btn btn-wa" href="https://wa.me/79189734171" target="_blank" rel="noopener"><svg class="icon"><use href="#i-wa"/></svg>WhatsApp</a>
+          <a class="btn btn-tg" href="https://t.me/+79189734171" target="_blank" rel="noopener"><svg class="icon"><use href="#i-tg"/></svg>Telegram</a>
+        </div>
+      </div>
+      <div class="map">
+        <!-- При желании вставьте сюда iframe с картой (Яндекс/2ГИС) -->
+        <svg class="map-pin" aria-hidden="true"><use href="#i-pin"/></svg>
+        <a class="btn btn-primary btn-sm" href="https://yandex.ru/maps/?text=%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%B4%D0%B0%D1%80%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%9B%D0%B5%D0%B2%D0%B0%D0%BD%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%2C%2022" target="_blank" rel="noopener">Построить маршрут</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= ФИНАЛЬНЫЙ CTA ======= -->
+<section style="padding-top:0">
+  <div class="container">
+    <div class="cta-band reveal">
+      <p>Пока вы занимаетесь своими делами, ваш ребёнок находится в месте, где о нём заботятся каждый день.</p>
+      <div class="cta-row">
+        <button class="btn btn-primary" data-modal>Записаться</button>
+        <a class="soc soc-wa" href="https://wa.me/79189734171" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="icon"><use href="#i-wa"/></svg></a>
+        <a class="soc soc-tg" href="https://t.me/+79189734171" target="_blank" rel="noopener" aria-label="Telegram"><svg class="icon"><use href="#i-tg"/></svg></a>
+        <a class="soc soc-vk" href="https://vk.com/" target="_blank" rel="noopener" aria-label="ВКонтакте"><svg class="icon"><use href="#i-vk"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ======= ФУТЕР ======= -->
+<footer class="footer">
+  <div class="container footer-in">
+    <a class="logo" href="#top" aria-label="Наверх">
+      <svg class="logo-pencil" aria-hidden="true"><use href="#pencil"/></svg>
+      <span class="logo-text">
+        <span class="logo-top">детский центр</span>
+        <span class="logo-word" aria-hidden="true"><b>К</b><b>А</b><b>Р</b><b>А</b><b>Н</b><b>Д</b><b>А</b><b>Ш</b></span>
+      </span>
+    </a>
+    <p class="copy">© <span id="year"></span> Детский центр «Карандаш». Все права защищены.</p>
+    <nav aria-label="Документы">
+      <!-- Замените на реальные страницы документов -->
+      <a href="#">Политика конфиденциальности</a>
+      <a href="#">Пользовательское соглашение</a>
+    </nav>
+  </div>
+</footer>
+
+<!-- ======= МОДАЛКА ЗАЯВКИ ======= -->
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+    <button class="modal-close" data-close aria-label="Закрыть">✕</button>
+    <h3 id="modalTitle">Записаться в «Карандаш»</h3>
+    <p class="modal-sub">Оставьте контакты — и мы всё расскажем. Или нажмите кнопку, и откроется WhatsApp с готовым сообщением.</p>
+    <form id="leadForm">
+      <div class="field"><label for="f-name">Ваше имя *</label><input id="f-name" name="name" required placeholder="Например, Анна"></div>
+      <div class="field"><label for="f-phone">Телефон *</label><input id="f-phone" name="phone" type="tel" required placeholder="+7 (___) ___-__-__"></div>
+      <div class="field"><label for="f-topic">Что интересует</label>
+        <select id="f-topic" name="topic">
+          <option>Продлёнка</option>
+          <option>Летний клуб</option>
+          <option>Подготовка к школе</option>
+          <option>Другие направления</option>
+          <option>Просто вопрос</option>
+        </select>
+      </div>
+      <div class="field"><label for="f-comment">Комментарий</label><textarea id="f-comment" name="comment" placeholder="Возраст ребёнка, школа, пожелания…"></textarea></div>
+      <button class="btn btn-wa" type="submit"><svg class="icon"><use href="#i-wa"/></svg>Отправить в WhatsApp</button>
+      <p class="form-note" id="formNote" hidden>Открываем WhatsApp с готовым сообщением… Если не открылось — позвоните: <a href="tel:+79189734171">+7 (918) 973-41-71</a></p>
+    </form>
+  </div>
+</div>
+
+<script>
+(function(){
+  var $=function(s,c){return (c||document).querySelector(s)};
+  var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+
+  /* Год в футере */
+  $('#year').textContent=new Date().getFullYear();
+
+  /* Тень шапки */
+  var header=$('#header');
+  addEventListener('scroll',function(){header.classList.toggle('scrolled',scrollY>10)},{passive:true});
+
+  /* Бургер-меню */
+  var burger=$('#burger');
+  burger.addEventListener('click',function(){
+    var open=document.body.classList.toggle('menu-open');
+    burger.setAttribute('aria-expanded',open);
+  });
+  $$('#nav a').forEach(function(a){a.addEventListener('click',function(){
+    document.body.classList.remove('menu-open');burger.setAttribute('aria-expanded','false');
+  })});
+
+  /* Плавное появление блоков */
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}
+    })},{threshold:.15});
+    $$('.reveal').forEach(function(el){io.observe(el)});
+  }else{$$('.reveal').forEach(function(el){el.classList.add('visible')})}
+
+  /* Слайдер отзывов */
+  var track=$('#reviewsTrack'),slides=$$('.review',track),dotsWrap=$('#reviewsDots'),cur=0,timer;
+  slides.forEach(function(_,i){
+    var b=document.createElement('button');
+    b.className='dot';b.setAttribute('aria-label','Отзыв '+(i+1));
+    b.addEventListener('click',function(){go(i);restart()});
+    dotsWrap.appendChild(b);
+  });
+  var dots=$$('.dot',dotsWrap);
+  function go(i){cur=(i+slides.length)%slides.length;
+    track.style.transform='translateX(-'+cur*100+'%)';
+    dots.forEach(function(d,j){d.classList.toggle('active',j===cur)});
+  }
+  function restart(){clearInterval(timer);timer=setInterval(function(){go(cur+1)},7000)}
+  go(0);restart();
+  var slider=$('#reviewsSlider');
+  slider.addEventListener('pointerenter',function(){clearInterval(timer)});
+  slider.addEventListener('pointerleave',restart);
+  /* свайпы */
+  var x0=null;
+  slider.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+  slider.addEventListener('touchend',function(e){
+    if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;
+    if(Math.abs(dx)>40){go(cur+(dx<0?1:-1));restart()}
+    x0=null;
+  },{passive:true});
+
+  /* Модальное окно */
+  var modal=$('#modal'),lastFocus=null;
+  function openModal(topic){
+    if(topic)$('#f-topic').value=topic;
+    lastFocus=document.activeElement;
+    modal.hidden=false;document.body.style.overflow='hidden';
+    requestAnimationFrame(function(){modal.classList.add('open')});
+    $('#f-name').focus();
+  }
+  function closeModal(){
+    modal.classList.remove('open');document.body.style.overflow='';
+    setTimeout(function(){modal.hidden=true},250);
+    if(lastFocus)lastFocus.focus();
+  }
+  $$('[data-modal]').forEach(function(b){
+    b.addEventListener('click',function(){openModal(b.getAttribute('data-topic'))});
+  });
+  modal.addEventListener('click',function(e){
+    if(e.target===modal||e.target.closest('[data-close]'))closeModal();
+  });
+  addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)closeModal()});
+
+  /* Заявка -> WhatsApp с готовым сообщением */
+  $('#leadForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=$('#f-name').value.trim(),phone=$('#f-phone').value.trim(),
+        topic=$('#f-topic').value,comment=$('#f-comment').value.trim();
+    var msg='Здравствуйте! Заявка с сайта.\nМеня зовут '+name+'.\nТелефон: '+phone+'.\nИнтересует: '+topic+'.'+(comment?'\nКомментарий: '+comment+'.':'');
+    $('#formNote').hidden=false;
+    window.open('https://wa.me/79189734171?text='+encodeURIComponent(msg),'_blank');
+  });
+})();
+</script>
+</body>
+</html>
