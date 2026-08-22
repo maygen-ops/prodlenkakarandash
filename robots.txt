@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://prodlenkakarandash.ru/sitemap.xml
